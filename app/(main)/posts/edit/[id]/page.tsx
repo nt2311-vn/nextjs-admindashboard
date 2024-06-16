@@ -24,11 +24,11 @@ const formSchema = z.object({
   date: z.string().min(1, { message: "Date is required" }),
 });
 
-interface PostEditEditPageProps {
+interface PostEditPageProps {
   params: { id: string };
 }
 
-const PostEditPage = ({ params }: PostEditEditPageProps) => {
+const PostEditPage = ({ params }: PostEditPageProps) => {
   const { toast } = useToast();
   const post = posts.find((post) => post.id === params.id);
   const form = useForm<z.infer<typeof formSchema>>({
